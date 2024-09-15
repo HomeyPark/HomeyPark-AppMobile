@@ -78,6 +78,7 @@
             android:layout_marginTop="24dp"
             android:text="Ingresar"
             android:textSize="16sp"
+            android:id="@+id/loginMain_goToHome"
             app:backgroundTint="#6CD391"
             app:cornerRadius="5dp" />
 

@@ -14,20 +14,30 @@ class LoginActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
 
-
-        addSignUpButtonHandler()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.loginMain)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        addGoToSignUpHandler()
+        addGoToHomeHandler()
+
     }
 
-    private fun addSignUpButtonHandler() {
+    private fun addGoToSignUpHandler() {
         val signUpBtn = findViewById<MaterialButton>(R.id.loginMain_goToSignUp)
 
         signUpBtn.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
+        }
+    }
+
+    private fun addGoToHomeHandler() {
+        val homeBtn = findViewById<MaterialButton>(R.id.loginMain_goToHome)
+
+        homeBtn.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
         }
     }
 }
