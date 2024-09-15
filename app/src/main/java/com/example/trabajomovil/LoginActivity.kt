@@ -15,7 +15,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
 
-        addSignUpButtonActivity()
+        addSignUpButtonHandler()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.loginMain)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -23,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun addSignUpButtonActivity() {
+    private fun addSignUpButtonHandler() {
         val signUpBtn = findViewById<MaterialButton>(R.id.loginMain_goToSignUp)
 
         signUpBtn.setOnClickListener {
