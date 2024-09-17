@@ -2,6 +2,7 @@ package com.example.trabajomovil
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.FrameLayout
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -10,6 +11,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.example.trabajomovil.databinding.ActivityHomeBinding
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -22,9 +24,23 @@ class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        BottomSheetBehavior.from(findViewById(R.id.home_bottomSheet)).apply {
+            peekHeight = 200
+            this.state = BottomSheetBehavior.STATE_COLLAPSED
+        }
+
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+
+        val standardBottomSheet = findViewById<FrameLayout>(R.id.home_bottomSheet)
+
+        BottomSheetBehavior.from(standardBottomSheet).apply {
+            peekHeight = 200
+            this.state = BottomSheetBehavior.STATE_COLLAPSED
+        }
+
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
