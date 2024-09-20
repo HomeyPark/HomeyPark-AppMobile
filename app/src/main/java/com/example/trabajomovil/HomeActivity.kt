@@ -2,53 +2,33 @@ package com.example.trabajomovil
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.FrameLayout
+import androidx.activity.enableEdgeToEdge
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
-import com.example.trabajomovil.databinding.ActivityHomeBinding
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-
-class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
-
-    private lateinit var map: GoogleMap
-    private lateinit var binding: ActivityHomeBinding
+class HomeActivity : AppCompatActivity() {
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_home)
 
-        binding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        BottomSheetBehavior.from(findViewById(R.id.home_bottomSheet)).apply {
-            peekHeight = 200
-            this.state = BottomSheetBehavior.STATE_COLLAPSED
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.home_activity)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
+            insets
         }
 
-        val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
 
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
 
-        val standardBottomSheet = findViewById<FrameLayout>(R.id.home_bottomSheet)
-
-        BottomSheetBehavior.from(standardBottomSheet).apply {
-            peekHeight = 200
-            this.state = BottomSheetBehavior.STATE_COLLAPSED
-        }
-
-    }
-
-    override fun onMapReady(googleMap: GoogleMap) {
-        map = googleMap
-
-        val defaultPosition = LatLng(-12.1035234, -76.9628504)
-
-        map.addMarker(MarkerOptions().position(defaultPosition).title("Welcome to UPC"))
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(defaultPosition, 16.0F))
+        setupWithNavController(bottomNavigationView, navController)
     }
 }
