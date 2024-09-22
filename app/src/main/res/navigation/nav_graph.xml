@@ -23,4 +23,9 @@
             android:id="@+id/action_exampleFragment_self"
             app:destination="@id/exampleFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/parkingRegisterFragment"
+        android:name="com.example.trabajomovil.app.ParkingRegisterFragment"
+        android:label="fragment_parking_register"
+        tools:layout="@layout/fragment_parking_register" />
 </navigation>

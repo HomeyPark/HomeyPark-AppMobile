@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.ParkingRegisterFragment">
+    <ScrollView
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Registro cochera"
+                android:textColor="#3C4E67"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/direccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Dirección del espacio de renta">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/espacio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Espacios disponibles">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.fragment.app.FragmentContainerView xmlns:map="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/parking_register_map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="283dp"
+                android:layout_height="287dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                tools:context=".ParkingRegisterActivity" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/altura"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:hint="Altura"
+                    android:inputType="numberDecimal"
+                    android:minHeight="48dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/longitud"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:hint="Longitud"
+                    android:inputType="numberDecimal"
+                    android:minHeight="48dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ancho"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:hint="Ancho"
+                    android:inputType="numberDecimal"
+                    android:minHeight="48dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/horaini"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:hint="Hora de inicio"
+                    android:inputType="time"
+                    android:minHeight="48dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/horacie"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:hint="Hora de cierre"
+                    android:inputType="time"
+                    android:minHeight="48dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/precio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Precio por hora"
+                android:inputType="numberDecimal"
+                android:minHeight="48dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Número de teléfono"
+                android:inputType="phone"
+                android:minHeight="48dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Descripción"
+                android:inputType="textMultiLine"
+                android:minHeight="48dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="#6cd391"
+                android:text="Registrar Cochera"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

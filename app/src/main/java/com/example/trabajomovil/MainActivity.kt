@@ -13,8 +13,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-    //    startLoginActivity()
-          startParkingRegisterActivity()
+        startLoginActivity()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -25,9 +24,5 @@ class MainActivity : AppCompatActivity() {
 
     private fun startLoginActivity() {
         startActivity(Intent(this, LoginActivity::class.java))
-    }
-
-    private fun startParkingRegisterActivity(){
-        startActivity(Intent(this, ParkingRegisterActivity::class.java))
     }
 }

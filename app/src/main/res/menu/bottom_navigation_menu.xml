@@ -5,6 +5,11 @@
         android:enabled="true"
         android:icon="@drawable/baseline_search_24"
         android:title="Search" />
+    <item
+        android:id="@+id/parkingRegisterFragment"
+        android:enabled="true"
+        android:icon="@drawable/baseline_search_24"
+        android:title="Register" />
 
     <item
         android:id="@+id/exampleFragment"
