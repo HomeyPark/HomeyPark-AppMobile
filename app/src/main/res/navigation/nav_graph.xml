@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/searchParkingFragment">
+
+    <fragment
+        android:id="@+id/searchParkingFragment"
+        android:name="com.example.trabajomovil.app.SearchParkingFragment"
+        android:label="fragment_search_parking"
+        tools:layout="@layout/fragment_search_parking" >
+        <action
+            android:id="@+id/action_searchParkingFragment_to_exampleFragment"
+            app:destination="@id/exampleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exampleFragment"
+        android:name="com.example.trabajomovil.app.ExampleFragment"
+        android:label="fragment_example"
+        tools:layout="@layout/fragment_example" >
+        <action
+            android:id="@+id/action_exampleFragment_self"
+            app:destination="@id/exampleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/parkingRegisterFragment"
+        android:name="com.example.trabajomovil.app.ParkingRegisterFragment"
+        android:label="fragment_parking_register"
+        tools:layout="@layout/fragment_parking_register" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.trabajomovil.app.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
