@@ -1,11 +1,14 @@
 package com.example.trabajomovil.app
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.FrameLayout
+import com.example.trabajomovil.HistoryActivity
 import com.example.trabajomovil.R
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -18,7 +21,6 @@ class SearchParkingFragment : Fragment() {
     private lateinit var view: View
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,9 +30,16 @@ class SearchParkingFragment : Fragment() {
 
         val bottomSheet = view.findViewById<FrameLayout>(R.id.home_bottomSheet)
 
+        val historyBtn = view.findViewById<Button>(R.id.search_parking_go_history_btn)
+
         BottomSheetBehavior.from(bottomSheet).apply {
             peekHeight = 200
             this.state = BottomSheetBehavior.STATE_COLLAPSED
+        }
+
+        historyBtn.setOnClickListener {
+            val intent = Intent(context, HistoryActivity::class.java)
+            startActivity(intent)
         }
 
         return view
