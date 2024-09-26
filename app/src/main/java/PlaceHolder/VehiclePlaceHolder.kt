@@ -1,0 +1,4 @@
+package PlaceHolder
+
+interface VehiclePlaceHolder {
+}
